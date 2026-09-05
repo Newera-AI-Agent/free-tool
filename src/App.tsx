@@ -1,14 +1,15 @@
 import { useEffect, useMemo, useState } from 'react'
+import { countText, encodeUrl, formatJson, hexToRgb } from './utils'
 
 type Tool = { id:string; name:string; category:string; description:string; run:(value:string)=>string }
 const tools:Tool[] = [
- {id:'json',name:'JSON formatter',category:'Format',description:'Make JSON readable and check its structure.',run:v=>{try{return JSON.stringify(JSON.parse(v),null,2)}catch{return 'Invalid JSON — check commas, quotes, and brackets.'}}},
+ {id:'json',name:'JSON formatter',category:'Format',description:'Make JSON readable and check its structure.',run:formatJson},
  {id:'base64',name:'Base64 codec',category:'Encode',description:'Encode text or decode a Base64 value.',run:v=>{try{return btoa(unescape(encodeURIComponent(v)))}catch{return 'Unable to encode this value.'}}},
- {id:'url',name:'URL encoder',category:'Encode',description:'Safely encode text for a URL.',run:v=>encodeURIComponent(v)},
+ {id:'url',name:'URL encoder',category:'Encode',description:'Safely encode text for a URL.',run:encodeUrl},
  {id:'uuid',name:'UUID generator',category:'Generate',description:'Create a fresh random identifier.',run:()=>crypto.randomUUID()},
  {id:'timestamp',name:'Timestamp converter',category:'Convert',description:'Turn an ISO date into a Unix timestamp.',run:v=>{const d=new Date(v);return Number.isNaN(d.getTime())?'Enter a valid date, for example 2024-01-15.':String(Math.floor(d.getTime()/1000))}},
  {id:'case',name:'Text case',category:'Text',description:'Convert a sentence to upper or lower case.',run:v=>v===v.toUpperCase()?v.toLowerCase():v.toUpperCase()},
- {id:'count',name:'Word counter',category:'Text',description:'Count words, characters, and lines.',run:v=>`Words  ${v.trim()?v.trim().split(/\s+/).length:0}\nCharacters  ${v.length}\nLines  ${v? v.split(/\n/).length:0}`},
+ {id:'count',name:'Word counter',category:'Text',description:'Count words, characters, and lines.',run:countText},
  {id:'regex',name:'Regex tester',category:'Inspect',description:'Test a regular expression against text.',run:v=>{const [pattern,...rest]=v.split('\n');try{const re=new RegExp(pattern);return re.test(rest.join('\n'))?'Match found':'No match found'}catch{return 'Invalid regular expression.'}}},
  {id:'color',name:'Color converter',category:'Convert',description:'Convert a hex color to RGB values.',run:v=>{const h=v.trim().replace('#','');if(!/^[0-9a-f]{6}$/i.test(h))return 'Enter a six-digit hex color.';return `rgb(${parseInt(h.slice(0,2),16)}, ${parseInt(h.slice(2,4),16)}, ${parseInt(h.slice(4),16)})`}},
  {id:'hash',name:'SHA-256 hash',category:'Secure',description:'Create a digest in your browser.',run:v=>{if(!v)return 'Enter text to hash.';return 'Hash ready — use the browser preview to calculate it.'}},

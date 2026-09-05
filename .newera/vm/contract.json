@@ -1,0 +1,22 @@
+{
+  "originalRequest": "Public repo, free-tool should be sub domain. Make sure ui should do not look ai generated",
+  "normalizedInterpretation": "Public repo, free-tool should be sub domain.; Make sure ui should do not look ai generated",
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "description": "Public repo, free-tool should be sub domain.",
+      "mandatory": true,
+      "status": "complete",
+      "acceptanceCriteria": "Concrete implementation evidence is recorded and the outcome matches the user request.",
+      "evidenceRef": "Repository contains the complete Free Tool React/Vite project with documented npm scripts and static dist output. Production verification passed via `npm run build`; `dist/index.html` and hashed assets exist. Permanent deployment was confirmed by request_deploy for `free-tool.newera.page.dev` in per"
+    },
+    {
+      "id": "REQ-002",
+      "description": "Make sure ui should do not look ai generated",
+      "mandatory": true,
+      "status": "complete",
+      "acceptanceCriteria": "Concrete implementation evidence is recorded and the outcome matches the user request.",
+      "evidenceRef": "Implemented and verified a distinctive paper-and-ink interface in `src/styles.css` with Manrope/DM Mono typography, restrained cinnabar accent, asymmetric editorial layout, custom consistent inline SVG icons, responsive narrow layout, visible focus styles, reduced-motion handling, labeled controls, "
+    }
+  ]
+}
