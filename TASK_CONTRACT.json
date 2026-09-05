@@ -1,0 +1,38 @@
+{
+  "originalRequest": "Public repo, free-tool should be sub domain. Make sure ui should do not look ai generated",
+  "normalizedInterpretation": "Public repo, free-tool should be sub domain.; Make sure ui should do not look ai generated",
+  "assumptions": [],
+  "profile": "fast",
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "description": "Public repo, free-tool should be sub domain.",
+      "mandatory": true,
+      "status": "pending",
+      "evidenceType": "custom",
+      "acceptanceCriteria": "Concrete implementation evidence is recorded and the outcome matches the user request."
+    },
+    {
+      "id": "REQ-002",
+      "description": "Make sure ui should do not look ai generated",
+      "mandatory": true,
+      "status": "pending",
+      "evidenceType": "custom",
+      "acceptanceCriteria": "Concrete implementation evidence is recorded and the outcome matches the user request."
+    }
+  ],
+  "featureMatrix": [
+    "Public repo, free-tool should be sub domain.",
+    "Make sure ui should do not look ai generated"
+  ],
+  "contentMatrix": [],
+  "assetManifest": [],
+  "audioManifest": [],
+  "testMatrix": [],
+  "artifactMatrix": [],
+  "platformRequirements": [],
+  "permissions": [],
+  "deferredItems": [],
+  "createdAt": 1788584844316,
+  "updatedAt": 1788584844316
+}
